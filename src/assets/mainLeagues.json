@@ -1,0 +1,65 @@
+[
+    {
+      "name": "Ligue 1",
+      "id": 2015,
+      "countryFlag": "https://flagcdn.com/w20/fr.png",
+      "competitionLogo":
+        "https://api.sofascore.app/api/v1/unique-tournament/34/image"
+    },
+    {
+      "name": "Premier League",
+      "id": 2021,
+      "countryFlag": "https://flagcdn.com/w20/gb-eng.png",
+      "competitionLogo":
+        "https://api.sofascore.app/api/v1/unique-tournament/17/image"
+    },
+    {
+      "name": "Serie A",
+      "id": 2019,
+      "countryFlag": "https://flagcdn.com/w20/it.png",
+      "competitionLogo":
+        "https://api.sofascore.app/api/v1/unique-tournament/23/image"
+    },
+    {
+      "name": "La Liga",
+      "id": 2014,
+      "countryFlag": "https://flagcdn.com/w20/es.png",
+      "competitionLogo":
+        "https://api.sofascore.app/api/v1/unique-tournament/8/image"
+    },
+    {
+      "name": "Bundesliga",
+      "id": 2002,
+      "countryFlag": "https://flagcdn.com/w20/de.png",
+      "competitionLogo":
+        "https://api.sofascore.app/api/v1/unique-tournament/35/image"
+    },
+    {
+      "name": "Primeira Liga",
+      "id": 2187,
+      "countryFlag": "https://flagcdn.com/w20/pt.png",
+      "competitionLogo":
+        "https://api.sofascore.app/api/v1/unique-tournament/238/image"
+    },
+    {
+      "name": "Eredivisie",
+      "id": 2003,
+      "countryFlag": "https://flagcdn.com/w20/nl.png",
+      "competitionLogo":
+        "https://api.sofascore.app/api/v1/unique-tournament/37/image"
+    },
+    {
+      "name": "Süper Lig",
+      "id": 2070,
+      "countryFlag": "https://flagcdn.com/w20/tr.png",
+      "competitionLogo":
+        "https://api.sofascore.app/api/v1/unique-tournament/52/image"
+    },
+    {
+      "name": "Pro League",
+      "id": 2009,
+      "countryFlag": "https://flagcdn.com/w20/be.png",
+      "competitionLogo":
+        "https://api.sofascore.app/api/v1/unique-tournament/38/image"
+    }
+  ]
