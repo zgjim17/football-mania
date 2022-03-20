@@ -50,6 +50,7 @@ import { reactive, ref } from "vue";
 import SimpleTypeahead from "vue3-simple-typeahead";
 import "vue3-simple-typeahead/dist/vue3-simple-typeahead.css"; //Optional default CSS
 import clubs from "@/assets/clubs.json";
+import axios from 'axios'
 
 export default {
   name: "my-vue-component",
@@ -79,23 +80,24 @@ export default {
         };
       });
     };
+      const teamTags = ref([]);
 
     const form = reactive({
       title: "",
       body: "",
       image: base64,
+      tags: teamTags
     });
 
-    const teamTags = ref([]);
     const addTag = (item) => {
       teamTags.value.push(item);
     };
 
     const submitFormen = () => {
       axios
-        .post("http://localhost:8000/api/articles", form)
+        .post("http://localhost:3000/articles", form)
         .then((response) => {
-          this.$router.push({ name: "ArticlesList" });
+          // this.$router.push({ name: "ArticlesList" });
         });
     };
 

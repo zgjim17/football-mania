@@ -4,14 +4,14 @@
       <div class="mainarticles">
         <div>
           <router-link
-            :to="{ name: 'ViewArticle', params: { id: selectedArticle.id } }"
+            :to="{ name: 'ArticleView', params: { id: selectedArticle.id } }"
           >
             <div class="article">
               <img
                 :src="selectedArticle.image"
                 alt=""
                 class="mainArticlePhoto"
-              /> 
+              />
 
               <h2 class="mainArticleTitle">
                 {{ selectedArticle.title }}
@@ -19,9 +19,14 @@
             </div>
           </router-link>
         </div>
+ 
 
         <div class="articlesWagon">
-          <div class="miniArticles" v-for="article in articles.slice(0,5)" :key="article">
+          <div
+            class="miniArticles"
+            v-for="article in articles.slice(0, 5)"
+            :key="article"
+          >
             <img
               :src="article.image"
               alt=""
@@ -32,7 +37,6 @@
         </div>
       </div>
     </div>
-
     <div class="right">
       <div class="selectLeague">
         <button
@@ -46,7 +50,11 @@
       </div>
 
       <table class="leagueTable">
-        <tr class="leagueRow" v-for="standing in tabela.standings[0].table.slice(0,10)" :key="standing">
+        <tr
+          class="leagueRow"
+          v-for="standing in tabela.standings[0].table.slice(0, 10)"
+          :key="standing"
+        >
           <td style="width: 10%">{{ standing.position }}</td>
 
           <td
@@ -57,7 +65,11 @@
               text-align: left;
             "
           >
-            <img style="max-width: 1.3vw" :src="standing.team.crestUrl" alt="" />
+            <img
+              style="max-width: 1.3vw"
+              :src="standing.team.crestUrl"
+              alt=""
+            />
           </td>
 
           <td style="width: 50%; text-align: left">{{ standing.team.name }}</td>
@@ -65,11 +77,18 @@
           <td style="width: 10%">{{ standing.playedGames }}</td>
           <td style="width: 20%">{{ standing.points }} pts</td>
         </tr>
-       <tr class="leagueRow">
+        <tr class="leagueRow">
           <td colspan="5" style="border-bottom: none">
-            <router-link :to="{name: 'LeagueView', params: {id: tabela.competition.id}}"> Click to see full table</router-link>
+            <router-link
+              :to="{
+                name: 'LeagueView',
+                params: { id: tabela.competition.id },
+              }"
+            >
+              Click to see full table</router-link
+            >
           </td>
-        </tr> 
+        </tr>
       </table>
     </div>
   </div>
@@ -77,14 +96,10 @@
 
 <script>
 import { ref } from "vue";
-import articles from "@/assets/articles.json";
-
-
+import axios from 'axios'
+// import articles from "@/assets/articles.json";
 export default {
   setup() {
-    const selectedArticle = ref(null);
-    const articles = ref(null);
-
     const leagues = [
       { name: "France", id: 2015 },
       { name: "Germany", id: 2002 },
@@ -93,6 +108,20 @@ export default {
       { name: "Spain", id: 2014 },
     ];
 
+    const articles = ref(null);
+
+    const getArticles = () =>
+      axios
+        .get("http://localhost:3000/articles")
+        .then(
+          (res) => (
+            (articles.value = res.data),
+            (selectedArticle.value = articles.value[0])
+          )
+        );
+
+
+getArticles()
     const selectedLeagueId = ref(2021);
 
     const changeLeagueId = (id) => {
@@ -101,27 +130,17 @@ export default {
       fetchLeagueData();
     };
 
-    // axios
-    //   .get("http://localhost:8000/api/articles")
-    //   .then(
-    //     (res) => (
-    //       (articles.value = res.data),
-    //       (selectedArticle.value = articles.value[0])
-    //     )
-    //   );
-
-    const changeMainArticle = (article) => {
-      selectedArticle.value = article;
-    };
-
     const tabela = ref(null);
 
     const fetchLeagueData = () =>
-      fetch(`http://api.football-data.org/v2/competitions/${selectedLeagueId.value}/standings`, {
-        headers: {
-          "X-Auth-Token": "cba23374de4d43258440be820d1d35d9",
-        },
-      })
+      fetch(
+        `http://api.football-data.org/v2/competitions/${selectedLeagueId.value}/standings`,
+        {
+          headers: {
+            "X-Auth-Token": "cba23374de4d43258440be820d1d35d9",
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => (tabela.value = data));
 
@@ -129,22 +148,26 @@ export default {
 
     fetchLeagueData();
 
+    const selectedArticle = ref(articles[0]);
+
+    const changeMainArticle = (article) => {
+      selectedArticle.value = article;
+    };
+
     return {
       articles,
-      selectedArticle,
-      changeMainArticle,
       tabela,
       leagues,
       changeLeagueId,
       selectedLeagueId,
+      changeMainArticle,
+      selectedArticle,
     };
   },
 };
 </script>
 
 <style scoped>
-
-
 .leagueChoiceButton {
   text-transform: uppercase;
   font-family: "Josefin Sans", sans-serif;

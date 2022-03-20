@@ -1,8 +1,14 @@
 <template>
+ 
+ 
   <div class="container">
     <div class="leagues">
- 
-      <div class="liga" v-for="league in mainLeagues" :key="league" @click="this.$router.push('/league/'+league.id)">
+      <div
+        class="liga"
+        v-for="league in mainLeagues"
+        :key="league"
+        @click="this.$router.push('/league/' + league.id)"
+      >
         <img class="competitionLogo" :src="league.competitionLogo" alt="" />
         <div class="informata">
           <img class="competitionFlag" :src="league.countryFlag" alt="" />
@@ -11,33 +17,52 @@
       </div>
     </div>
 
-    <button v-for="club in clubs" :key="club"> {{club}}</button>
+    <button v-for="club in clubs" :key="club">{{ club }}</button>
   </div>
 </template>
 
 <script >
 import { ref } from "vue";
-import clubs from '@/assets/clubs.json'
-import mainLeagues from '@/assets/mainLeagues.json'
+import clubs from "@/assets/clubs.json";
+import mainLeagues from "@/assets/mainLeagues.json";
+// import articles from '@/assets/articles.json'
 
 export default {
   setup() {
  
- 
 
-  console.log(clubs,'a')
+    const data = { username: "Zgjimi", id: 4 };
+
+    const submitoForm = () => {
+      fetch("src/assets/articles.json", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    };
+
+    console.log(clubs, "a");
     return { mainLeagues, clubs };
   },
 };
 </script>
 
 <style scoped>
-.competitionFlag{
-    height: 1.5vh; 
+.competitionFlag {
+  height: 1.5vh;
 }
 
-.competitionLogo{
-    max-width: 50%;
+.competitionLogo {
+  max-width: 50%;
 }
 
 .leagues {
@@ -45,13 +70,12 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 
 .liga {
   display: flex;
   flex-direction: column;
-  margin: 0 1vw 2vw 1vw; 
+  margin: 0 1vw 2vw 1vw;
   align-items: center;
   max-width: 15vw;
 }
@@ -73,12 +97,10 @@ export default {
   cursor: pointer;
 }
 
-.liga:hover{
-    color: black;
-    background-color: #60bf81;
+.liga:hover {
+  color: black;
+  background-color: #60bf81;
 }
-
- 
 
 .container {
   /* background-color: red; */

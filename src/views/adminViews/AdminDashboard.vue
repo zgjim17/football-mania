@@ -3,20 +3,18 @@
     <router-link :to="{ name: 'CreateArticle' }"
       ><button class="butoni">Create an article</button></router-link
     >
-
-     
-
-  
   </div>
 </template>
 
-<script> 
-export default {
-  setup() {
-     
- 
+<script>
+import axios from "axios";
 
-    return {   };
+export default {
+  async setup() {
+    const articles = await axios.get(`http://localhost:3000/articles`);
+
+    console.log(articles);
+    return { articles };
   },
 };
 </script>

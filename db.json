@@ -1,0 +1,23 @@
+{
+  "articles": [
+    {
+      "id": 0,
+      "title": "Salah kerkon largim",
+      "body": "Luajas",
+      "image": "https://images2.minutemediacdn.com/image/fetch/w_736,h_485,c_fill,g_auto,f_auto/https%3A%2F%2Ftheprideoflondon.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2017%2F07%2F1364279624-850x560.jpeg",
+      "tags": [
+        "Liverpool",
+        "Barcelona"
+      ]
+    },
+    {
+      "title": "arar",
+      "body": "fafsafsa",
+      "tags": [
+        "Real Madrid",
+        "Arsenal FC"
+      ],
+      "id": 1
+    }
+  ]
+}
