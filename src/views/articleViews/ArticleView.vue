@@ -13,6 +13,7 @@
 <script>
 import { useRoute } from "vue-router";
 import { reactive } from "vue";
+import axios from 'axios'
 
 export default {
   setup() {
@@ -23,7 +24,7 @@ export default {
     const getArticle = async () => {
       try {
         const rezultati = await axios.get(
-          "http://localhost:8000/api/articles/" + id
+          "http://localhost:3000/articles/" + id
         );
 
         article.title = rezultati.data.title;
