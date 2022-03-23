@@ -16,13 +16,11 @@
         </div>
       </div>
     </div>
-
-    <button v-for="club in clubs" :key="club">{{ club }}</button>
+ 
   </div>
 </template>
 
-<script >
-import { ref } from "vue";
+<script > 
 import clubs from "@/assets/clubs.json";
 import mainLeagues from "@/assets/mainLeagues.json";
 // import articles from '@/assets/articles.json'
@@ -30,27 +28,7 @@ import mainLeagues from "@/assets/mainLeagues.json";
 export default {
   setup() {
  
-
-    const data = { username: "Zgjimi", id: 4 };
-
-    const submitoForm = () => {
-      fetch("src/assets/articles.json", {
-        method: "POST", // or 'PUT'
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    };
-
-    console.log(clubs, "a");
+ 
     return { mainLeagues, clubs };
   },
 };

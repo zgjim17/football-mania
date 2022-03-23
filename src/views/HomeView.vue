@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="left">
-      <div class="mainarticles">
+      <div v-if="articles" class="mainarticles">
         <div>
           <router-link
             :to="{ name: 'ArticleView', params: { id: selectedArticle.id } }"
@@ -19,7 +19,6 @@
             </div>
           </router-link>
         </div>
- 
 
         <div class="articlesWagon">
           <div
@@ -54,10 +53,8 @@
           class="leagueRow"
           v-for="standing in tabela.standings[0].table.slice(0, 10)"
           :key="standing"
-          @click="$router.push('/club/'+ standing.team.id)"
-
+          @click="$router.push('/club/' + standing.team.id)"
         >
-          
           <td style="width: 10%">{{ standing.position }}</td>
 
           <td
@@ -99,7 +96,7 @@
 
 <script>
 import { ref } from "vue";
-import axios from 'axios'
+import axios from "axios";
 // import articles from "@/assets/articles.json";
 export default {
   setup() {
@@ -123,8 +120,7 @@ export default {
           )
         );
 
-
-getArticles()
+    getArticles();
     const selectedLeagueId = ref(2021);
 
     const changeLeagueId = (id) => {

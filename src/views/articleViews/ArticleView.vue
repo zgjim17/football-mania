@@ -9,8 +9,8 @@
     </div>
 
     <div class="articleTags">
-      <router-link v-for="tag in article.tags" :key="tag" :to="{ name: 'ClubView', params: { id: tag } }">
-        <button >{{ tag }}</button>
+      <router-link v-for="tag in article.tags" :key="tag" :to="{ name: 'ClubView', params: { id: tag.id } }">
+        <button >{{ tag.name }}</button>
       </router-link>
     </div>
     <div class="articleBody">

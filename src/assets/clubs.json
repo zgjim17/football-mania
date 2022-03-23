@@ -1,20 +1,91 @@
 [
-  "Arsenal FC",
-  "Manchester United FC",
-  "Chelsea FC",
-  "Manchester City FC",
-  "Liverpool FC",
-  "Tottenham Hotspur FC",
-  "FC Bayern München",
-  "Borussia Dortmund",
-  "Paris Saint-Germain FC",
-  "FC Internazionale Milano",
-  "AC Milan",
-  "SSC Napoli",
-  "Juventus FC",
-  "Club Atlético de Madrid",
-  "Real Madrid CF",
-  "Sevilla",
-  "FC Barcelona"
+  {
+    "name": "Arsenal",
+    "id": 57
+  },
+  {
+    "name": "Manchester City",
+    "id": 65
+  },
+  {
+    "name": "Chelsea",
+    "id": 61
+  },
+  {
+    "name": "Liverpool",
+    "id": 64
+  },
+  {
+    "name": "Tottenham Hotspur",
+    "id": 73
+  },
+  {
+    "name": "Manchester United",
+    "id": 66
+  },
+  {
+    "name": "FC Barcelona",
+    "id": 81
+  },
+  {
+    "name": "Real Madrid",
+    "id": 86
+  },
+  {
+    "name": "Atletico Madrid",
+    "id": 78
+  },
+  {
+    "name": "Sevilla",
+    "id": 559
+  },
+  {
+    "name": "Inter Milan",
+    "id": 108
+  },
+  {
+    "name": "AC Milan",
+    "id": 98
+  },
+  {
+    "name": "Juventus",
+    "id": 109
+  },
+  {
+    "name": "AS Roma",
+    "id": 100
+  },
+  {
+    "name": "SSC Napoli",
+    "id": 113
+  },
+  {
+    "name": "Atalanta",
+    "id": 102
+  },
+  {
+    "name": "SS Lazio",
+    "id": 110
+  },
+  {
+    "name": "Bayern Munchen",
+    "id": 5
+  },
+  {
+    "name": "Borussia Dortmund",
+    "id": 4
+  },
+  {
+    "name": "RB Leipzig",
+    "id": 721
+  },
+  {
+    "name": "PSG",
+    "id": 524
+  },
+  {
+    "name": "AS Monaco",
+    "id": 548
+  }
 ]
 
