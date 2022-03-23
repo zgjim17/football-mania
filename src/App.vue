@@ -40,7 +40,7 @@ body {
   background-color: #111920;
   /* background-color: blue; */
 
-  background-image: url("https://i.ibb.co/ts0cvnp/324234.png");
+  /* background-image: url("https://i.ibb.co/ts0cvnp/324234.png"); */
 
   background-size: 100vw;
   background-repeat: no-repeat;

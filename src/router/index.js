@@ -5,6 +5,7 @@ import CreateArticle from '@/views/articleViews/CreateArticle.vue'
 import ArticleView from '@/views/articleViews/ArticleView.vue'
 import AllLeagues from '@/views/leagueViews/AllLeagues.vue'
 import LeagueView from '@/views/leagueViews/LeagueView.vue'
+import ClubView from '@/views/leagueViews/ClubView.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/league/:id',
     name: 'LeagueView',
     component: LeagueView
+  },
+  {
+    path: '/club/:id',
+    name: 'ClubView',
+    component: ClubView
   },
   
 ]

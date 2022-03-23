@@ -47,7 +47,8 @@
 
       <table class="leagueTable">
         <tr class="leagueRow" v-for="standing in tabela.standings[0].table.slice(0,10)" :key="standing">
-          <td style="width: 10%">{{ standing.position }}</td>
+       
+            <td style="width: 10%">{{ standing.position }}</td>
 
           <td
             style="
@@ -64,6 +65,7 @@
 
           <td style="width: 10%">{{ standing.playedGames }}</td>
           <td style="width: 20%">{{ standing.points }} pts</td>
+     
         </tr>
        <tr class="leagueRow">
           <td colspan="5" style="border-bottom: none">
