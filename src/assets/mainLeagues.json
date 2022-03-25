@@ -24,6 +24,12 @@
     "competitionLogo": "https://api.sofascore.app/api/v1/unique-tournament/8/image"
   },
   {
+    "name": "Bundesliga",
+    "id": 2002,
+    "countryFlag": "https://flagcdn.com/w20/de.png",
+    "competitionLogo": "https://api.sofascore.app/api/v1/unique-tournament/35/image"
+  },
+  {
     "name": "Eredivisie",
     "id": 2003,
     "countryFlag": "https://flagcdn.com/w20/nl.png",

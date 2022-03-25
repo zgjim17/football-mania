@@ -26,7 +26,7 @@
             </router-link>
           </div>
 
-          <div class="articlesWagon">
+          <!-- <div class="articlesWagon">
             <div
               class="miniArticles"
               v-for="article in articles.filter(article => article.important === 'true').slice(0, 5)"
@@ -39,7 +39,7 @@
                 @mouseover="changeMainArticle(article)"
               />
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="right">
@@ -123,7 +123,11 @@
           <img :src="article.image" alt="" />
           <h5 class="leagueArticleTitle">{{ article.title }}</h5>
         </div>
-        <button style="text-transform: none" class="leagueChoiceButton">See more...</button>
+        
+        <router-link :to="{name: 'AllArticles'}">
+
+         <button style="text-transform: none" class="leagueChoiceButton">See more...</button>
+        </router-link>
       </div>
     </div>
   </div>

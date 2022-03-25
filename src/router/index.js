@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AdminDashboard from '../views/adminViews/AdminDashboard.vue'
 import CreateArticle from '@/views/articleViews/CreateArticle.vue'
 import ArticleView from '@/views/articleViews/ArticleView.vue'
+import AllArticles from '@/views/articleViews/AllArticles.vue'
 import AllLeagues from '@/views/leagueViews/AllLeagues.vue'
 import LeagueView from '@/views/leagueViews/LeagueView.vue'
 import ClubView from '@/views/leagueViews/ClubView.vue'
@@ -42,6 +43,11 @@ const routes = [
     path: '/club/:id',
     name: 'ClubView',
     component: ClubView
+  },
+  {
+    path: '/allarticles',
+    name: 'AllArticles',
+    component: AllArticles
   },
   
 ]
