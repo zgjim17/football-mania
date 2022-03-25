@@ -172,7 +172,7 @@ export default {
     };
     const submitFormen = () => {
       axios.post("http://localhost:3000/articles", form).then((response) => {
-        // this.$router.push({ name: "ArticlesList" });
+        this.$router.push({ name: "Home" });
       });
 
       this.$router.push({name: 'Home'});

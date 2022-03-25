@@ -20,6 +20,8 @@
           class="leagueRow"
           v-for="standing in tabela.standings[0].table"
           :key="standing"
+          
+            @click="this.$router.push('/club/'+ standing.team.id)"
         >
           <td style="width: 5%">{{ standing.position }}</td>
 

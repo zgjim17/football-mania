@@ -16,6 +16,8 @@
         </div>
       </div>
     </div>
+
+    <p>Due to the limit on the API I'm using, I can't show more leagues</p>
  
   </div>
 </template>

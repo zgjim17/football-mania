@@ -25,6 +25,8 @@
             class="article"
             v-for="article in teamArticles"
             :key="article.id"
+            @click="this.$router.push('/article/'+article.id)"
+            style="cursor: pointer"
           >
             <img :src="article.image" alt="" />
             <h5 class="articleTitle">{{ article.title }}</h5>
