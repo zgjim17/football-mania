@@ -1,4 +1,7 @@
 <template>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
   <Header />
  
   <router-view/>
@@ -7,6 +10,7 @@
 </template>
 
 <script>
+
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue' 
 import axios from 'axios'
