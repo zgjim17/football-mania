@@ -21,7 +21,7 @@
       >
         <img :src="article.image" alt="" />
 
-        <div >
+        <div>
           <h2 class="articleTitle">{{ article.title }}</h2>
 
           <p class="paragraf">
@@ -36,6 +36,8 @@
 <script>
 import { ref } from "vue";
 import axios from "axios";
+import articlesJSON from "@/assets/articlesJSON.json";
+
 export default {
   setup() {
     const leagueOptions = [
@@ -48,12 +50,20 @@ export default {
     ];
 
     const changeLeague = (league) => {
+    
+
+      selectedLeague.value = league;
+
       if (league === "All") {
-        articles.value = axios
-          .get("http://localhost:3000/articles")
-          .then(
-            (res) => (articles.value = res.data.sort((a, b) => b.id - a.id))
-          );
+        // articles.value = articles.value
+        // articles.value = axios
+        //   .get("http://localhost:3000/articles")
+        //   .then(
+        //     (res) => (articles.value = res.data.sort((a, b) => b.id - a.id))
+        //   );
+      console.log('as')
+      articles.value = articlesJSON.articles.sort((a, b) => b.id - a.id)
+
       } else {
         selectedLeague.value = league;
         getArticles();
@@ -62,23 +72,35 @@ export default {
 
     const selectedLeague = ref("Premier League");
 
-    const articles = ref(null);
+    // const articles = ref(null);
 
-    const getArticles = () =>
-      axios
-        .get("http://localhost:3000/articles")
-        .then(
-          (res) =>
-            (articles.value = res.data
-              .filter((article) =>
-                article.leagues.some(
-                  (league) => league === selectedLeague.value
-                )
-              )
-              .sort((a, b) => b.id - a.id))
-        );
+    const articles = ref(
+      articlesJSON.articles.filter((article) =>
+        article.leagues.some((league) => league == selectedLeague.value)
+      ).sort((a, b) => b.id - a.id)
+    );
 
-    getArticles();
+    const getArticles = () => {
+      articles.value = articlesJSON.articles.filter((article) =>
+        article.leagues.some((league) => league == selectedLeague.value)
+      ).sort((a, b) => b.id - a.id)
+    };
+
+    // const getArticles = () =>
+    //   axios
+    //     .get("http://localhost:3000/articles")
+    //     .then(
+    //       (res) =>
+    //         (articles.value = res.data
+    //           .filter((article) =>
+    //             article.leagues.some(
+    //               (league) => league === selectedLeague.value
+    //             )
+    //           )
+    //           .sort((a, b) => b.id - a.id))
+    //     );
+
+    // getArticles();
 
     console.log(articles);
 
@@ -153,12 +175,12 @@ export default {
 
 .articleTitle {
   text-align: justify;
-  margin: 0.5vw 0 0 0;  
+  margin: 0.5vw 0 0 0;
   font-size: 1.5vw;
   font-weight: 600;
 }
 
-.article:hover{
-    color: #60bf81;
+.article:hover {
+  color: #60bf81;
 }
 </style>

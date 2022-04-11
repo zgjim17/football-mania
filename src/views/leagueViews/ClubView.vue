@@ -25,7 +25,7 @@
             class="article"
             v-for="article in teamArticles"
             :key="article.id"
-            @click="this.$router.push('/article/'+article.id)"
+            @click="this.$router.push('/article/' + article.id)"
             style="cursor: pointer"
           >
             <img :src="article.image" alt="" />
@@ -51,6 +51,8 @@
 <script>
 import { useRoute } from "vue-router";
 import { ref } from "vue";
+import articlesJSON from "@/assets/articlesJSON.json";
+
 export default {
   setup() {
     const route = useRoute();
@@ -72,14 +74,16 @@ export default {
     const teamArticles = ref(null);
 
     const fetchArticles = () => {
-      fetch(`http://localhost:3000/articles`)
-        .then((res) => res.json())
-        .then(
-          (data) =>
-            (teamArticles.value = data.filter((article) =>
-              article.tags.some((tag) => tag.id == id)
-            ))
-        );
+      // fetch(`http://localhost:3000/articles`)
+      //   .then((res) => res.json())
+      //   .then(
+      //     (data) =>
+      //       (teamArticles.value = data.filter((article) =>
+      //         article.tags.some((tag) => tag.id == id)
+      //       ))
+      //   );
+        teamArticles.value = articlesJSON.articles.filter(article => article.tags.some(tag => tag.id == id))
+
     };
 
     fetchArticles();

@@ -9,14 +9,16 @@
     </div>
 
     <div class="articleTags">
-      <router-link v-for="tag in article.tags" :key="tag" :to="{ name: 'ClubView', params: { id: tag.id } }">
-        <button >{{ tag.name }}</button>
+      <router-link
+        v-for="tag in article.tags"
+        :key="tag"
+        :to="{ name: 'ClubView', params: { id: tag.id } }"
+      >
+        <button>{{ tag.name }}</button>
       </router-link>
     </div>
     <div class="articleBody">
- 
-        <p style="white-space: pre-line; ">{{ article.body }}</p>
-   
+      <p style="white-space: pre-line">{{ article.body }}</p>
     </div>
 
     <!-- <p>{{artikle}}</p> -->
@@ -27,29 +29,30 @@
 import { useRoute } from "vue-router";
 import { reactive } from "vue";
 import axios from "axios";
+import articlesJSON from "@/assets/articlesJSON.json";
 
 export default {
   setup() {
-    const article = reactive({});
     const route = useRoute();
     const id = route.params.id;
+    const article = articlesJSON.articles.find(article => article.id == id)
 
-    const getArticle = async () => {
-      try {
-        const rezultati = await axios.get(
-          "http://localhost:3000/articles/" + id
-        );
+    // const getArticle = async () => {
+    //   try {
+    //     const rezultati = await axios.get(
+    //       "http://localhost:3000/articles/" + id
+    //     );
 
-        article.title = rezultati.data.title;
-        article.body = rezultati.data.body;
-        article.image = rezultati.data.image;
-        article.tags = rezultati.data.tags;
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    //     article.title = rezultati.data.title;
+    //     article.body = rezultati.data.body;
+    //     article.image = rezultati.data.image;
+    //     article.tags = rezultati.data.tags;
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
 
-    getArticle();
+    // getArticle();
 
     return { article };
   },

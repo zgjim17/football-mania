@@ -136,7 +136,8 @@
 <script>
 import { ref } from "vue";
 import axios from "axios";
-// import articles from "@/assets/articles.json";
+import articlesJSON from "@/assets/articlesJSON.json";
+
 export default {
   setup() {
     const latestArticleLeagues = ["Premier League", "La Liga", "Serie A", 'Ligue One'];
@@ -149,19 +150,19 @@ export default {
       { name: "Spain", id: 2014 },
     ];
 
-    const articles = ref(null);
+    const articles = articlesJSON.articles.sort((a, b) => b.id - a.id)
 
-    const getArticles = () =>
-      axios
-        .get("http://localhost:3000/articles")
-        .then(
-          (res) => (
-            (articles.value = res.data.sort((a, b) => b.id - a.id)),
-            (selectedArticle.value = articles.value.filter(article => article.important === 'true').sort((a,b) => b.id - a.id)[0])
-          )
-        );
+    // const getArticles = () =>
+    //   axios
+    //     .get("http://localhost:3000/articles")
+    //     .then(
+    //       (res) => (
+    //         (articles.value = res.data.sort((a, b) => b.id - a.id)),
+    //         (selectedArticle.value = articles.value.filter(article => article.important === 'true').sort((a,b) => b.id - a.id)[0])
+    //       )
+    //     );  
 
-    getArticles();
+    // getArticles();
     const selectedLeagueId = ref(2021);
 
     const changeLeagueId = (id) => {

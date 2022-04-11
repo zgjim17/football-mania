@@ -7,7 +7,7 @@
         /></router-link>
 
         <router-link :to="{ name: 'Home' }">Home</router-link>
-        <router-link :to="{ name: 'AdminDashboard' }">Admin Page</router-link>
+        <!-- <router-link :to="{ name: 'AdminDashboard' }">Admin Page</router-link> -->
         <router-link :to="{ name: 'AllLeagues' }">Leagues</router-link>
         <router-link :to="{ name: 'AllArticles' }">Articles</router-link>
         <!-- <router-link :to="{ name: 'PostPage' }">Clubs</router-link> -->
