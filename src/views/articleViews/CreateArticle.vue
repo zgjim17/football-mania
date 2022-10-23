@@ -149,6 +149,8 @@ export default {
 
     const leagues = ref([]);
 
+    window.localStorage.setItem('gont', 3)
+
     const form = reactive({
       title: "",
       body: "",
