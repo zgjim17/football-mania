@@ -150,7 +150,7 @@ export default {
       { name: "Spain", id: 2014 },
     ];
 
-    const articles = articlesJSON.articles.sort((a, b) => b.id - a.id)
+    const articles = articlesJSON.articles;
 
     // const getArticles = () =>
     //   axios
