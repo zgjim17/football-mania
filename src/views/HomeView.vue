@@ -140,8 +140,6 @@ import articlesJSON from "@/assets/articlesJSON.json";
 
 export default {
   setup() {
-    window.localStorage.setItem('fafsa', 6654)
-
     const latestArticleLeagues = ["Premier League", "La Liga", "Serie A", 'Ligue One'];
 
     const leagues = [
