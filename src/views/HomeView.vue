@@ -140,6 +140,8 @@ import articlesJSON from "@/assets/articlesJSON.json";
 
 export default {
   setup() {
+    window.localStorage.setItem('gont', 3)
+
     const latestArticleLeagues = ["Premier League", "La Liga", "Serie A", 'Ligue One'];
 
     const leagues = [
